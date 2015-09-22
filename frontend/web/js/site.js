@@ -1,5 +1,5 @@
 'use strict';
-yii2AngApp_site1.config(['$routeProvider', function($routeProvider) {
+yii2AngApp_site.config(['$routeProvider', function($routeProvider) {
   $routeProvider
     .when('/site/index', {
         templateUrl: '/partials/site/index.php',

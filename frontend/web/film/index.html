@@ -1,5 +1,6 @@
 <div>
-    <h1>Каталог фильмов</h1>    
+    <h1>Каталог фильмов</h1> 
+    Search: <input ng-model="query">
     <p>{{ message}}</p>
     <div ng-show="films.length > 0">
         <a class="btn btn-primary" href="#/film/create">
@@ -14,7 +15,7 @@
             <th style="width:80px;">Действия&nbsp;</th>
             </thead>
             <tbody>
-                <tr ng-repeat="data in films">
+                <tr ng-repeat="data in films | filter:query">
                     <td>{{data.title}}</td>
                     <td>{{data.director}}</td>
                     <td>{{data.storyline}}</td>

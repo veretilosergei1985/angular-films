@@ -10,11 +10,34 @@ var app = angular.module('app', [
 app.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
-      when('/site/index', {
+      when('/film/index', {
         templateUrl: 'film/index.html',
-        controller: 'filmListCtrl'
-      }).
-      otherwise({
+        controller: 'index'
+      })
+      .when('/film/create', {
+        templateUrl: 'film/create.html',
+        controller: 'create',
+        resolve: {
+            film: function(services, $route){
+                return services.getFilms();
+            }
+        }
+    })
+    .when('/film/update/:filmId', {
+        templateUrl: 'film/update.html',
+        controller: 'update',
+        resolve: {
+          film: function(services, $route){
+            var filmId = $route.current.params.filmId;
+            return services.getFilm(filmId);
+          }
+        }
+    })
+    .when('/film/delete/:filmId', {
+        templateUrl: 'film/index.html',
+        controller: 'delete',
+    })
+    .otherwise({
         redirectTo: '/film/index'
-      });
+    });
   }]);

@@ -14,7 +14,7 @@ filmControllers.controller('filmListCtrl', ['$scope', '$http',
   }]);
 */  
   
-filmControllers.controller('filmListCtrl', ['$scope', '$http', 'services', 
+filmControllers.controller('index', ['$scope', '$http', 'services', 
     function($scope, $http, services) {
     $scope.message = 'Everyone come and see how good I look!';
     services.getFilms().then(function(data){

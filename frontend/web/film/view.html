@@ -1,0 +1,17 @@
+<div>
+    <h1>Каталог фильмов: информация о фильме</h1>
+
+    <p>{{ message}}</p>
+    {{film.title}}
+    <div>
+        <img ng-src="images/film/{{mainImageUrl}}" class="film">
+        <ul class="film-thumbs">
+            <li ng-repeat="img in film.images">
+              <img ng-src="images/film/{{img.image}}" ng-click="setImage(img)">
+            </li>
+        </ul>
+    </div>
+    <p>
+        {{film.storyline}}
+    </p>
+</div>

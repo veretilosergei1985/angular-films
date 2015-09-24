@@ -7,6 +7,12 @@ var app = angular.module('app', [
   'filmControllers',
 ]);
 
+app.config(['$httpProvider', function($httpProvider) {
+        $httpProvider.defaults.useXDomain = true;
+        delete $httpProvider.defaults.headers.common['X-Requested-With'];
+    }
+]);
+
 app.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
@@ -26,6 +32,16 @@ app.config(['$routeProvider',
     .when('/film/update/:filmId', {
         templateUrl: 'film/update.html',
         controller: 'update',
+        resolve: {
+          film: function(services, $route){
+            var filmId = $route.current.params.filmId;
+            return services.getFilm(filmId);
+          }
+        }
+    })    
+    .when('/film/view/:filmId', {
+        templateUrl: 'film/view.html',
+        controller: 'view',
         resolve: {
           film: function(services, $route){
             var filmId = $route.current.params.filmId;

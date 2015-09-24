@@ -4,7 +4,7 @@ namespace backend\controllers;
 use Yii;
 use yii\rest\ActiveController;
 
-class FilmController extends ActiveController
+class FilmController extends \backend\controllers\ApiController
 {
     public $modelClass = 'common\models\Film';
 
@@ -31,10 +31,6 @@ class FilmController extends ActiveController
                 'class' => 'backend\controllers\actions\ViewAction',
                 'modelClass' => $this->modelClass,
             ],
-//            'delete' => [
-//                'class' => 'backend\controllers\actions\DeleteAction',
-//                'modelClass' => $this->modelClass,
-//            ],
         ]);
 
     }

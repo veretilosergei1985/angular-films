@@ -38,7 +38,5 @@ class ViewAction extends Action
             "year" => $model->year,
             "images" => $images,
         ];
-        
-        //return $model;
     }
 }

@@ -1,4 +1,4 @@
-RewriteEngine on
+RewriteEngine On
 
 <FilesMatch "\.(ttf|otf|eot|woff|jpg|png|jpeg|gif|js|json|html|css)$">
   <IfModule mod_headers.c>
@@ -6,9 +6,7 @@ RewriteEngine on
   </IfModule>
 </FilesMatch>
 
-# If a directory or a file exists, use it directly
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-# Otherwise forward it to index.php
 
 RewriteRule . index.php

@@ -34,6 +34,16 @@ filmControllers.controller('index', ['$scope', '$http', 'services',
         var results = services.createFilm(film);
     }  
 }])
+.controller('view', ['$scope', '$http', 'services', '$location', 'film', 
+    function($scope, $http, services, $location, film) {
+    //$scope.message = 'Look! I am an about page.';
+    $scope.mainImageUrl = film.data.images[0].image;
+    $scope.film = film.data;
+    
+    $scope.setImage = function(imageUrl) {
+      $scope.mainImageUrl = imageUrl.image;
+    };
+}])
 .controller('update', ['$scope', '$http', '$routeParams', 'services','$location','film', 
     function($scope,$http,$routeParams,services,$location,film) {
     $scope.message = 'Contact us! JK. This is just a demo.';

@@ -7,6 +7,8 @@ use yii\db\ActiveRecord;
 
 class Film extends ActiveRecord
 {
+    public $images = [];
+    
     public function rules()
     {
         return [
@@ -30,7 +32,12 @@ class Film extends ActiveRecord
             'director' => 'Director',
             'year' => 'Year',
         ];
-    }    
+    }
+    
+    public function getImages()
+    {        
+        return $this->hasMany(Image::className(), ['film_id' => 'id']);
+    }
 }
 
 

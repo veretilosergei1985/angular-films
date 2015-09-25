@@ -7,6 +7,8 @@ use yii\db\ActiveRecord;
 
 class Film extends ActiveRecord
 {
+    public $images = [];
+    
     public function rules()
     {
         return [

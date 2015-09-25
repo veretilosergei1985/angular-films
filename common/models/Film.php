@@ -30,7 +30,12 @@ class Film extends ActiveRecord
             'director' => 'Director',
             'year' => 'Year',
         ];
-    }    
+    }
+    
+    public function getImages()
+    {        
+        return $this->hasMany(Image::className(), ['film_id' => 'id']);
+    }
 }
 
 

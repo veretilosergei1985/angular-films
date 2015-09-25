@@ -17,4 +17,19 @@ class FilmController extends ActiveController
             ],
         ]);
     }
+    
+    public function actions()
+    {
+        return array_merge(parent::actions(), [
+            'index' => [
+                'class' => 'backend\controllers\actions\IndexAction',
+                'modelClass' => $this->modelClass,                
+            ],
+            'view' => [
+                'class' => 'backend\controllers\actions\ViewAction',
+                'modelClass' => $this->modelClass,                
+            ]
+        ]);
+
+    }
 }

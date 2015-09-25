@@ -33,6 +33,16 @@ app.config(['$routeProvider',
           }
         }
     })
+    .when('/film/view/:filmId', {
+        templateUrl: 'film/view.html',
+        controller: 'view',
+        resolve: {
+          film: function(services, $route){
+            var filmId = $route.current.params.filmId;
+            return services.getFilm(filmId);
+          }
+        }
+    })
     .when('/film/delete/:filmId', {
         templateUrl: 'film/index.html',
         controller: 'delete',
